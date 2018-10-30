@@ -11,6 +11,7 @@ class FullPost extends Component {
 
     loadData () {
         if (this.props.match.params.id) {
+            // '+' symbol below to turn string into number for strict comparison operator
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)) {
                 axios.get("/posts/" + this.props.match.params.id)
                     .then(response => {
